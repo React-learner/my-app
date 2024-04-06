@@ -6,7 +6,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-        this.state = {
       monsters: []    
     };
   }
@@ -17,22 +16,34 @@ class App extends Component {
     .then ((users) => this.setState(()=>{
       return{monsters,users}
     },
-    () => {
-      console.log (this.state);
-
+    ()=>{
+    console.log(this.state)
     }
-    ) )
-  }
- 
-  render() {
+    ))
+  
+  render() {;
     return (
       <div className='App'>
-        {this.state.monsters.map(monster => (
-          <h1 key={monster.name}>{monster.name}</h1>
-        ))}
-      </div>
-    );
-  }
-}
+      <input className='search'
+       type='search'
+        placeholder='search monsters' 
+        onChange={(Event)} => {
+          console.log(Event,target.value);
+          //[{name:Leanne},{name:Yihua}]
+          const filteredMonsters = this.state.monster.filter((monster)>={
+          monster.name.includes(Event.target.value );
 
-export default App;
+          );
+        }}
+        {this.state.monsters.map(monster => {
+        return ()
+       <div key={monster.id}>
+         <h1>key={monster.name}>{monster.name}</h1>
+         </div> 
+        );
+  
+        }
+      }
+    }
+
+export default App;  
