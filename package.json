@@ -34,10 +34,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
   },
   "devDependencies": {
    
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-react": "^7.34.1"
+=======
+>>>>>>> d1ba227ace961d9b07e6b3cc98a31972728e50ab
   }
 }
