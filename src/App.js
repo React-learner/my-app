@@ -1,38 +1,33 @@
-import { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+javascript
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      monsters : [
-        {
-         name: "Linda"
-         },
-       {
-        name: "Frank"
-       },
-        {
-        name: "Jacky"
-       },
-      ],
-
-      }
-    };
-  }
-
-  render():{;
-    return (
-      <div className="App">   
-  {
-    this.state.monsters.map( monsters) => {
-    })}
-    return<h1>{mosnters.name</h1>;
-  }
-     </div>
-    )
-  }
+componentDidMount() {
+  fetch('https://jsonplaceholder.typicode.com/users');
+    then(response => response.json()
+  ) .then(users => this.setState({ monsters: users }));
 }
 
-export default App;
+   
+
+
+render() {
+  return (
+    <div className='App'>
+      <input
+        className='search'
+        type='search'
+        placeholder='search monsters'
+        onChange={(event) => {
+          console.log(event.target.value);
+          const filteredMonsters = this.state.monsters.filter((monster) => {
+            return monster.name.includes(event.target.value);
+          });
+        }}
+      />
+      {this.state.monsters.map((monster) => (
+        <div key={monster.id}>
+          <h1>{monster.name}</h1>
+        </div>
+      ))}
+    </div>
+  );
+}
